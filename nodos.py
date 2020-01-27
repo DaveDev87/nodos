@@ -25,16 +25,19 @@ for element in caminos:
 
 caminosFinal = [0,0,0]
 cont = 0
+w = 0
 
 for idx, element in enumerate(caminos):
     cont=0
+    w = random.randrange(1,100)
     for item in element:
-        cont+=item.calidad
-        cont+=item.tiempo
-        cont+=item.tipo
-        cont+=item.longitud
-        cont+=item.status
+        cont += item.calidad
+        cont += item.tiempo
+        cont += item.tipo
+        cont += item.longitud
+        cont += item.status
+        cont += w
     caminosFinal[idx] = cont
         
 
-print(caminosFinal)
+print("Camino más corto " + str(caminosFinal.index(min(caminosFinal))) + " con " + str(min(caminosFinal)))
