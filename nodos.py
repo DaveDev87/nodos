@@ -1,6 +1,7 @@
 import random
+from funciones import *
 
-class Nodo:
+class Camino:
     def __init__(self, calidad, tiempo, tipo, longitud, status):
         self.calidad = calidad
         self.tiempo = tiempo
@@ -8,14 +9,8 @@ class Nodo:
         self.longitud = longitud
         self.status = status
 
-
-def tiempo(tiempo):
-    resul = tiempo / 3600 * 100
-    return int(resul)
-    
-def longitud(longitud):
-    resul = longitud / 90000 * 100
-    return int(resul)
+# class Carro:
+#     def __init__(self, velodidad, calCarro, staCarro,  )
 
 
 caminos = [[], [], []]
@@ -31,7 +26,7 @@ for element in caminos:
         lon = random.randrange(1, 90000)
         lonFinal = longitud(lon)
         sta = random.randrange(1, 100)
-        element.append(Nodo(cal, tieFinal, tip, lonFinal, sta))
+        element.append(Camino(cal, tieFinal, tip, lonFinal, sta))
 
 
 caminosFinal = [0,0,0]
@@ -51,5 +46,7 @@ for idx, element in enumerate(caminos):
     caminosFinal[idx] = cont
         
 
+print("\n", len(caminos[0]),len(caminos[1]),len(caminos[2]), "\n")
+# print("Camino más corto " + str(caminosFinal.index(min(caminosFinal))) + " con " + str(min(caminosFinal)))
 
-print("Camino más corto " + str(caminosFinal.index(min(caminosFinal))) + " con " + str(min(caminosFinal)))
+
