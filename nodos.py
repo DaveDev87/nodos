@@ -9,6 +9,15 @@ class Nodo:
         self.status = status
 
 
+def tiempo(tiempo):
+    resul = tiempo / 3600 * 100
+    return int(resul)
+    
+def longitud(longitud):
+    resul = longitud / 90000 * 100
+    return int(resul)
+
+
 caminos = [[], [], []]
 tipoList = [25, 50, 75, 100]
 
@@ -17,10 +26,12 @@ for element in caminos:
     for item in range(x):
         cal = random.randrange(1, 100)
         tie = random.randrange(1, 3600)
+        tieFinal = tiempo(tie)
         tip = random.choice(tipoList)
         lon = random.randrange(1, 90000)
+        lonFinal = longitud(lon)
         sta = random.randrange(1, 100)
-        element.append(Nodo(cal, tie, tip, lon, sta))
+        element.append(Nodo(cal, tieFinal, tip, lonFinal, sta))
 
 
 caminosFinal = [0,0,0]
@@ -39,5 +50,6 @@ for idx, element in enumerate(caminos):
         cont += w
     caminosFinal[idx] = cont
         
+
 
 print("Camino más corto " + str(caminosFinal.index(min(caminosFinal))) + " con " + str(min(caminosFinal)))
