@@ -1,6 +1,12 @@
 import random
 from funciones import *
 
+caminos = [[]]
+tipoList = [25, 50, 75, 100]
+caminosFinal = [0,0,0]
+cont = 0
+w = 0
+
 class Camino:
     def __init__(self, calidad, tiempo, tipo, longitud, status):
         self.calidad = calidad
@@ -9,15 +15,50 @@ class Camino:
         self.longitud = longitud
         self.status = status
 
-# class Carro:
-#     def __init__(self, velodidad, calCarro, staCarro,  )
+class Carro:
+    def __init__(self, velocidad, calCarro, staCarro, tipLlanta, staLlanta, gasTipo, 
+    gasCantidad, cilindraje, pesoTotal, aerodinamica, staAceite, tempMotor, batalla):
+        self.velocidad = velocidad
+        self.calCarro = calCarro
+        self.staCarro = staCarro
+        self.tipLlanta = tipLlanta
+        self.staLlanta = staLlanta 
+        self.gasTipo = gasTipo
+        self.gasCantidad = gasCantidad
+        self.cilindraje = cilindraje
+        self.pesoTotal = pesoTotal
+        self.aerodinamica = aerodinamica
+        self.staAceite = staAceite
+        self.tempMotor = tempMotor
+        self.batalla = batalla
 
 
-caminos = [[], [], []]
-tipoList = [25, 50, 75, 100]
+# 
+# carro1 = Carro()
+
+carVel = 110 # Velocidad se calula en m/s y km/h velocidad maxima 110 Km/h, según la complejidad de las curvas puede bajar a un minimo de 60 km/h
+carCalCarro = 100 # 100 alta, 75 media, menos de 50 baja
+carStaCarro = 100 # 100 buen estado, 75 estado normal, 50 mal estado
+carTipLLanta = 100 # 100 radiales menos combustible, 50 HP mayor velocidad mayor adeherencia mas combustible
+carStaLLanta = 100 # 100 buen estado, 75 estado normal, 50 mal estado
+carGasTipo = 100 # 
+carGasCantidad = 65 # maximo de 65 litros
+carCilindros = 8 # numero de cilindros, mientras más cilindros más gasolina gasta
+carPeso = 1500 # peso en Kg, mientras más pesado mayor consumo de gasolina y mayor disminución de velocidad en curvas
+carAero = 100 # mientras más alto sea el número menos resistencia al viento, por lo tanto mayor velocidad
+carStaAce = 100 # mientras mejor sea el estado del aceite menos se calienta el motor
+carTempMotor = 90 # temperatura en grados celsius, mientras más alto sea el estado del aceite menos tiende a calentarse, maximo de 150 grados, nunca baja de 70
+carBatalla = 4.3 # Distancia entre ejes, mientras mayor sea la distancia mayor estabilidad en cruvas
+
+
+
+
+
+
+
 
 for element in caminos:
-    x = random.randrange(1, 99)
+    x = random.randrange(1, 5)
     for item in range(x):
         cal = random.randrange(1, 100)
         tie = random.randrange(1, 3600)
@@ -28,10 +69,6 @@ for element in caminos:
         sta = random.randrange(1, 100)
         element.append(Camino(cal, tieFinal, tip, lonFinal, sta))
 
-
-caminosFinal = [0,0,0]
-cont = 0
-w = 0
 
 for idx, element in enumerate(caminos):
     cont=0
@@ -46,7 +83,8 @@ for idx, element in enumerate(caminos):
     caminosFinal[idx] = cont
         
 
-print("\n", len(caminos[0]),len(caminos[1]),len(caminos[2]), "\n")
-# print("Camino más corto " + str(caminosFinal.index(min(caminosFinal))) + " con " + str(min(caminosFinal)))
+print("\n")
+for item in caminos[0]:
+    print("calidad:", item.calidad, "tiempo:", item.tiempo, "tipo:", item.tipo, "Longitud:", item.longitud, "status:", item.status)
 
-
+print("\n")
