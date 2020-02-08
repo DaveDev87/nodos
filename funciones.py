@@ -23,6 +23,13 @@ def gasolina(gas):
     resul = gas / 65 * 100
     return resul
 
+
+#FUNCIONES DEL REPORTE
+
+
+    
+
+
 # MODIFICAR PROPIEDADES DEL CARRO
 
 def changeVelocidad(vel, comple, tipo, caminoSta, tipoLLanta, llantaSta, peso, aero, batalla, longitud):

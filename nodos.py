@@ -81,26 +81,9 @@ gasolina(carGasCantidad), carCilindros, peso(carPeso), carAero, carStaAce, carTe
 
 velMax = carro1.velocidad
 for item in caminos[0]:
-    newVel = changeVelocidad(velMax, item.complejidad, item.tipo, item.status, carro1.tipLlanta, carro1.staLlanta, carro1.pesoTotal, carro1.aerodinamica, carro1.batalla, item.longitud)
+    newVel = changeVelocidad(velMax, item.complejidad, item.tipo, item.status, carro1.tipLlanta, carro1.staLlanta, 
+    carro1.pesoTotal, carro1.aerodinamica, carro1.batalla, item.longitud)
     newStaLLanta = changeStaLLanta(carro1.staLlanta, item.tipo, item.status, item.longitud)
     newGas = changeGas(carro1.gasCantidad, item.longitud, carro1.cilindraje)
     carro1.staLlanta = newStaLLanta
     carro1.gasCantidad = newGas
-
-
-
-
-
-
-
-
-
-
-
-
-
-# print("\n")
-# for item in caminos[0]:
-#     print("calidad:", item.calidad, "tiempo:", item.tiempo, "tipo:", item.tipo, "Longitud:", item.longitud, "status:", item.status)
-
-# print("\n")
