@@ -1,3 +1,4 @@
+from inspect import signature
 
 def tiempo(tiempo):
     resul = tiempo / 3600 * 100
@@ -23,59 +24,27 @@ def gasolina(gas):
     resul = gas / 65 * 100
     return resul
 
-
-#FUNCIONES DEL REPORTE
-
-
-    
-
-
 # MODIFICAR PROPIEDADES DEL CARRO
 
-def changeVelocidad(vel, comple, tipo, caminoSta, tipoLLanta, llantaSta, peso, aero, batalla, longitud):
-    velocidad = vel
-    if longitud > 0:
-        if tipo > 50:
-            if tipoLLanta > 50:
-                velocidad *= 0.92
-            else:
-                velocidad *= 0.95
-        elif tipo < 75:
-            if tipoLLanta > 50:
-                velocidad
-            else:
-                velocidad *= 0.97
+def promedio(a, b):
+    return (a+b)/2
 
-        if comple < 80:
-            velocidad *= 0.95
-            if tipoLLanta > 50:
-                velocidad *= 0.96
-            elif tipoLLanta < 75:
-                velocidad *= 0.98
-            if peso > 75:
-                velocidad *=0.95
-            if llantaSta < 51:
-                velocidad *= 0.95
 
-        if aero < 80:
-            velocidad *= 0.95
-        if caminoSta < 75:
-            velocidad *= 0.94
-            
-    return velocidad
+
+def changeVelocidad(vel, comple, tipo, caminoSta, tipoLLanta, llantaSta, peso, aero, batalla, longitud, precipitaciones, viento, dirviento, neblina):
+    if dirviento:
+        viento*=1
+    else:
+        viento*=-1
+    resul = (promedio(vel, comple) + promedio(vel, tipo) + promedio(vel, caminoSta) + promedio(vel, llantaSta)
+    + promedio(vel, peso) + promedio(vel, batalla) + promedio(vel, precipitaciones) + promedio(vel, viento) + 
+    promedio(vel, neblina)) / (len(signature(changeVelocidad).parameters) - 4)
+    return resul
+
+    
 
 def changeStaLLanta(llanta, tipo, status, longitud):
-    cont = 0
-
-    if tipo > 50:
-        cont = 0.00095
-    
-    cont += float("0.0000"+str(status))
-    
-
-    sub = cont * longitud
-    final = llanta - sub
-    return final
+    return llanta
 
 def changeGas(gas, longitud, cilindros):
     
