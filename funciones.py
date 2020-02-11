@@ -101,7 +101,7 @@ def poncharse(status):
 
 def desponchadora(tipo):
     ra = random.randrange(1, 100)
-    if(ra<complejidad):
+    if(ra<tipo):
         return True
     else:
         return False
