@@ -1,4 +1,5 @@
 from inspect import signature
+import random
 
 def tiempo(tiempo):
     resul = tiempo / 3600 * 100
@@ -27,7 +28,11 @@ def gasolina(gas):
 # MODIFICAR PROPIEDADES DEL CARRO
 
 def promedio(a, b):
-    return (a+b)/2
+    return (a+b) / 2
+
+def desfase(a):
+    resul = 100 - a
+    return resul
 
 
 
@@ -43,24 +48,60 @@ def changeVelocidad(vel, comple, tipo, caminoSta, tipoLLanta, llantaSta, peso, a
 
     
 
-def changeStaLLanta(llanta, tipo, status, longitud):
-    return llanta
+def changeStaLLanta(llanta, tipo, status, longitud, precipitaciones):
+    if tipo > 50:
+        tip = 1500
+    else:
+        tip = 1000
+    coeficiente = (desfase(status) + desfase(precipitaciones)) / tip
+    resul = llanta - (coeficiente*longitud)
+    return resul
 
 def changeGas(gas, longitud, cilindros):
-    
-    if cilindros == 4:
-        resultado = 0.075 * longitud
-    elif cilindros == 6:
-        res = 0.075 * longitud
-        resultado = res * 1.05
-    elif cilindros==8:
-        res = 0.075 * longitud
-        resultado = res * 1.08
 
+    coeficiente = (100 - (100 / cilindros)) / 1000
+    resul = gas - (coeficiente * longitud)
+    return resul
 
-    final = gas - resultado
-    return final
+def changeAceite(aceite, longitud, temp):
+    coeficiente = temp - 90
+    border = coeficiente / 10
+    if coeficiente > 0:
+        resul = (aceite - border) 
+    else:
+        resul = aceite
+    return resul
+
 
 
 # PROBABILIDADES DE QUE OCURRAN LOS EVENTOS
 
+def gasolinera(complejidad):
+    ra = random.randrange(1, 100)
+    if(ra<complejidad):
+        return True
+    else:
+        return False
+
+def reten(velocidad, calidad, complejidad):
+    ra = random.randrange(1, 100)
+    cof = 20 
+    resul = promedio(cof, velocidad) + promedio(cof, complejidad)
+    if(ra<resul):
+        return True
+    else:
+        return False
+
+def poncharse(status):
+    ra = random.randrange(1, 100)
+    if(ra<status/4):
+        return True
+    else:
+        return False
+
+def desponchadora(tipo):
+    ra = random.randrange(1, 100)
+    if(ra<complejidad):
+        return True
+    else:
+        return False
