@@ -76,32 +76,6 @@ def changeAceite(aceite, longitud, temp):
 
 # PROBABILIDADES DE QUE OCURRAN LOS EVENTOS
 
-def gasolinera(complejidad):
-    ra = random.randrange(1, 100)
-    if(ra<complejidad):
-        return True
-    else:
-        return False
 
-def reten(velocidad, calidad, complejidad):
-    ra = random.randrange(1, 100)
-    cof = 20 
-    resul = promedio(cof, velocidad) + promedio(cof, complejidad)
-    if(ra<resul):
-        return True
-    else:
-        return False
 
-def poncharse(status):
-    ra = random.randrange(1, 100)
-    if(ra<status/4):
-        return True
-    else:
-        return False
 
-def desponchadora(tipo):
-    ra = random.randrange(1, 100)
-    if(ra<tipo):
-        return True
-    else:
-        return False

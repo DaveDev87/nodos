@@ -1,6 +1,8 @@
 import random
 from funciones import *
 import math
+from eventos import *
+import json
 
 caminos = [[]]
 tipoList = [25, 50, 75, 100]
@@ -58,8 +60,6 @@ carStaAce = 100    # mientras mejor sea el estado del aceite menos se calienta e
 carTempMotor = 100  # temperatura en grados celsius, mientras más alto sea el estado del aceite menos tiende a calentarse, maximo de 150 grados, nunca baja de 70
 carBatalla = 4.3      # Distancia entre ejes, mientras mayor sea la distancia mayor estabilidad en cruvas
 carDinero = 3000
-carRef = True
-carPonch = False
 
 
 
@@ -96,13 +96,8 @@ batalla(carBatalla), carDinero, carRef, carPonch)
 
 newVel = carro1.velocidad
 for idx, item in enumerate(caminos[0]):
-    if carro1.gasCantidad<=0:
-        break
     
     
-
-
-
     evento = ""
     newVel              = changeVelocidad(newVel, item.complejidad, item.tipo, item.status, carro1.tipLlanta, carro1.staLlanta, 
                         carro1.pesoTotal, carro1.aerodinamica, carro1.batalla, item.longitud, item.precipitaciones, item.viento, 
@@ -116,29 +111,7 @@ for idx, item in enumerate(caminos[0]):
     carro1.staAceite    = newAceite
     item.tiempo         = math.ceil(item.longitud / carro1.velocidad)
     
-
-    if gasolinera(item.complejidad):
-        evento += "Gasolinera. "
-        if carro1.gasCantidad < 10:
-            carro1.gasCantidad = gasolina(65)
-
-    if reten(carro1.velocidad, carro1.calCarro, item.complejidad):
-        evento += "Reten. "
-        if carro1.calCarro > 75:
-            carro1.dinero -= 200
-
-    if poncharse(carro1.staLlanta):
-        evento += "Ponchado. "
-        carro1.ponchado = True
-        if carro1.refaccion:
-            evento += "LLanta cambiada"
-            carro1.refaccion = False
-            carro1.ponchado = False
-            carro1.staLlanta = 100
-
-    # if desponchadora(item.status):
-
-        
+    
             
 
     
@@ -149,3 +122,14 @@ for idx, item in enumerate(caminos[0]):
 
 
     eventos.append(evento)
+
+
+eventosTxt = 
+
+resultado = open("resultado.txt","w")
+
+resultado.write(eventosTxt)
+
+resultado.close()
+
+
