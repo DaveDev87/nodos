@@ -1,5 +1,6 @@
 import random
 from funciones import promedio
+from nodos import Carro
 
 def gasolinera(complejidad):
     ra = random.randrange(1, 100)
@@ -8,7 +9,7 @@ def gasolinera(complejidad):
     else:
         return "no"
 
-def reten(velocidad, calidad, complejidad):
+def reten(velocidad, calidad, complejidad, dinero):
     ra = random.randrange(1, 100)
     cof = 20 
     resul = promedio(cof, velocidad) + promedio(cof, complejidad)
@@ -73,7 +74,6 @@ def animales(longitud, tipo, precipitaciones):
         return "Choque con animal"
     else:
         return "no"
-
 
 def choque(complejidad, status, precipitaciones, viento, neblina, velocidad, stallanta, batalla):
     ra = random.randrange(1, 100)
@@ -172,3 +172,114 @@ def elevacion(peso, cilindraje):
         return "Elevacion"
     else:
         return "no"
+
+#TRIGGER DE EVENTOS
+
+def newCarro(complejidad, velocidad, calidad, status, tipo, precipitaciones, tempMotor, aceite, neblina, longitud, viento, staLLanta, batalla, dinero, dirViento, peso, cilindraje, tiempo, aerodinamica, staCarro, tipoLLanta, gasCantidad):
+    eventos = []
+    continua = True
+    treas = False
+
+    N_velocidad = velocidad 
+    N_tempMotor = tempMotor 
+    N_aceite = aceite 
+    N_staLLanta = staLLanta 
+    N_dinero = dinero 
+ 
+    N_gasCantidad= gasCantidad 
+
+
+    if gasolinera(complejidad)!="no":
+        eventos.append("Gasolinera")
+        if gasCantidad<=10:
+            N_gasCantidad = 100
+    
+    if reten(velocidad, calidad, complejidad, dinero)!="no":
+        eventos.append("Reten")
+        if dinero<=0:
+            continua = False
+        elif calidad>70:
+            N_dinero-=30
+        else:
+            N_dinero-=5
+
+    if desponchadora(tipo)!="no":
+        eventos.append("Desponchadora")
+
+    if taller(complejidad)!="no":
+        eventos.append("Taller")
+
+    if poncharse(staLLanta)!="no":
+        eventos.append("Ponchado")
+        if "Desponchadora" in eventos == False:
+            continua = False
+
+    if bateria(precipitaciones, tempMotor)!="no":
+        eventos.append("Fallo de bateria")
+        if "Taller" in eventos == False:
+            continua = False
+
+    if calentamientoMotor(tempMotor, aceite, status)!="no":
+        eventos.append("Sobrecalentamiento del motor")
+        N_aceite -= 12
+
+    if aguaMotor(precipitaciones, neblina)!="no":
+        eventos.append("Agua en el motor")
+
+    if animales(longitud, tipo, precipitaciones)!="no":
+        eventos.append("Choque con animal")
+        if "Taller" in eventos == False:
+            continua = False
+
+    if choque(complejidad, status, precipitaciones, viento, neblina, velocidad, staLLanta, batalla)!="no":
+        eventos.append("Choque")
+        if "Taller" in eventos == False:
+            continua = False
+
+    if lluvia(precipitaciones, viento)!="no":
+        eventos.append("Lluvias torrenciales")
+        N_velocidad -= 10
+        N_tempMotor -= 2
+
+    if tormenta(precipitaciones, viento)!="no":
+        eventos.append("Tormenta electrica")
+        N_velocidad -= 15
+        N_staLLanta -= 9
+    
+    if rayo(batalla)!="no":
+        eventos.append("Impacto de rayo")
+        if "Taller" in eventos == False:
+            continua = False
+    
+    if visibilidad(neblina)!="no":
+        eventos.append("Perdida de visibilidad")
+        N_velocidad -= 7
+
+    if fantasmas(neblina, 30)!="no":
+        eventos.append("Fantasma")
+        treas = True
+
+    if tesoro(treas)!="no":
+        eventos.append("Tesoro")
+        N_dinero += 4000
+
+    if aventon(neblina, precipitaciones)!="no":
+        eventos.append("Aventon")
+        N_dinero += 500
+
+    if trafico(complejidad, status):
+        eventos.append("Trafico")
+        N_velocidad -= 10
+        N_gasCantidad -= 8
+
+    if ave(viento, dirViento)!="no":
+        eventos.append("Ave en el parabrisas")
+        N_velocidad -= 5
+
+    if elevacion(peso, cilindraje):
+        eventos.append("Varado por peso")
+        N_gasCantidad -= 12
+        N_velocidad -= 12
+        N_tempMotor += 5
+
+    return [eventos, continua, Carro(N_velocidad, calidad, staCarro, tipoLLanta, N_staLLanta, N_gasCantidad, cilindraje, peso, aerodinamica, aceite, N_tempMotor, batalla, N_dinero)]

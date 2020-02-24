@@ -1,7 +1,7 @@
 import random
 from funciones import *
 import math
-from eventos import *
+from eventos import newCarro
 import json
 
 caminos = [[]]
@@ -27,7 +27,7 @@ class Camino:
 class Carro:
     def __init__(self, velocidad, calCarro, staCarro, tipLlanta, staLlanta, 
      gasCantidad, cilindraje, pesoTotal, aerodinamica, staAceite, tempMotor,
-    batalla, dinero, refaccion, ponchado):
+    batalla, dinero):
         self.velocidad      = velocidad
         self.calCarro       = calCarro
         self.staCarro       = staCarro
@@ -41,8 +41,6 @@ class Carro:
         self.tempMotor      = tempMotor
         self.batalla        = batalla
         self.dinero         = dinero
-        self.refaccion      = refaccion
-        self.ponchado       = ponchado
 
 
 
@@ -63,9 +61,9 @@ carDinero = 3000
 
 
 
-for element in caminos:
-    x = random.randrange(1, 99)
-    for item in range(x):
+for element in caminos: # GENERACION DE CAMINOS
+    x = random.randrange(0, 1)
+    for item in range(x):# GENERACION DE NODOS 
         cal = random.randrange(1, 100)
         tieFinal = 0
         tip = random.choice(tipoList)
@@ -92,13 +90,12 @@ for idx, element in enumerate(caminos):
 
 carro1 = Carro(velocidad(carVel), carCalCarro, carStaCarro, carTipLLanta, carStaLLanta, 
 gasolina(carGasCantidad), carCilindros, peso(carPeso), carAero, carStaAce, carTempMotor, 
-batalla(carBatalla), carDinero, carRef, carPonch)
+batalla(carBatalla), carDinero)
 
 newVel = carro1.velocidad
 for idx, item in enumerate(caminos[0]):
     
     
-    evento = ""
     newVel              = changeVelocidad(newVel, item.complejidad, item.tipo, item.status, carro1.tipLlanta, carro1.staLlanta, 
                         carro1.pesoTotal, carro1.aerodinamica, carro1.batalla, item.longitud, item.precipitaciones, item.viento, 
                         item.dirViento, item.neblina)
@@ -112,24 +109,14 @@ for idx, item in enumerate(caminos[0]):
     item.tiempo         = math.ceil(item.longitud / carro1.velocidad)
     
     
-            
-
+                
+    CarEvent = newCarro(item.complejidad, newVel, item.calidad, item.status, item.tipo, item.precipitaciones, carro1.tempMotor, carro1.staAceite, item.neblina, item.longitud, item.viento, carro1.staLlanta, carro1.batalla, carro1.dinero, item.dirViento, carro1.pesoTotal, carro1.cilindraje, item.tiempo, carro1.aerodinamica, carro1.staCarro, carro1.tipLlanta, carro1.gasCantidad)
     
 
-    carroLista.append(Carro(newVel, carro1.calCarro, carro1.staCarro, carro1.tipLlanta, carro1.staLlanta, carro1.gasCantidad, 
-        carro1.cilindraje, carro1.pesoTotal, carro1.aerodinamica, carro1.staAceite, carro1.tempMotor, carro1.batalla,
-        carro1.dinero, carro1.refaccion, carro1.ponchado))
+    carroLista.append(CarEvent[2])
+    if CarEvent[1]==False:
+        break
 
-
-    eventos.append(evento)
-
-
-eventosTxt = 
-
-resultado = open("resultado.txt","w")
-
-resultado.write(eventosTxt)
-
-resultado.close()
-
+    
+    
 
