@@ -62,7 +62,7 @@ carDinero = 3000
 
 
 for element in caminos: # GENERACION DE CAMINOS
-    x = random.randrange(0, 1)
+    x = random.randrange(0, 10)
     for item in range(x):# GENERACION DE NODOS 
         cal = random.randrange(1, 100)
         tieFinal = 0
@@ -110,13 +110,12 @@ for idx, item in enumerate(caminos[0]):
     
     
                 
-    CarEvent = newCarro(item.complejidad, newVel, item.calidad, item.status, item.tipo, item.precipitaciones, carro1.tempMotor, carro1.staAceite, item.neblina, item.longitud, item.viento, carro1.staLlanta, carro1.batalla, carro1.dinero, item.dirViento, carro1.pesoTotal, carro1.cilindraje, item.tiempo, carro1.aerodinamica, carro1.staCarro, carro1.tipLlanta, carro1.gasCantidad)
-    
+    CarEvent = newCarro(item.complejidad, newVel, carro1.calCarro, item.status, item.tipo, item.precipitaciones, carro1.tempMotor, carro1.staAceite, item.neblina, item.longitud, item.viento, carro1.staLlanta, carro1.batalla, carro1.dinero, item.dirViento, carro1.pesoTotal, carro1.cilindraje, item.tiempo, carro1.aerodinamica, carro1.staCarro, carro1.tipLlanta, carro1.gasCantidad)
+ 
 
-    carroLista.append(CarEvent[2])
-    if CarEvent[1]==False:
-        break
 
+with open("data.txt", "w",encoding="utf-8") as f:
+    json.dump(carroLista, f, ensure_ascii=False, indent=4)
     
     
 
