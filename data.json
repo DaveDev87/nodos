@@ -1,7 +1,14 @@
-{
-    "simon": true,
-    "nelson": false
-}{
-    "simon": true,
-    "nelson": false
-}
+[
+    {
+        "simon": true,
+        "nelson": false,
+        "datass": [
+            {
+                "hola": 9900
+            },
+            {
+                "prueba": 3000
+            }
+        ]
+    }
+]

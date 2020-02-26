@@ -1,2 +1,290 @@
 [
-    
+    [
+        {
+            "evento": "gasolinera",
+            "triggered": true,
+            "complejidad": 42,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "reten",
+            "triggered": true,
+            "complejidad": 42,
+            "calidad": 100,
+            "velocidad": 60,
+            "dinero": 3000,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "desponchadora",
+            "triggered": true,
+            "tipo": 75,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "taller",
+            "triggered": false,
+            "complejidad": 42,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "poncharse",
+            "triggered": false,
+            "staLLanta": 98,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "bateria",
+            "triggered": false,
+            "precipitaciones": 28,
+            "tempMotor": 100,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "sobrecalentamiento",
+            "triggered": true,
+            "tempMotor": 100,
+            "aceite": 99.0,
+            "status": 71,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "aguaMotor",
+            "triggered": true,
+            "precipitaciones": 28,
+            "neblina": 42,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "animales",
+            "triggered": false,
+            "longitud": 29,
+            "tipo": 75,
+            "precipitaciones": 28,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "gasolinera",
+            "triggered": false,
+            "complejidad": 42,
+            "statusCar": 71,
+            "precipitaciones": 28,
+            "viento": 38,
+            "neblina": 42,
+            "velocidad": 60,
+            "status": 98,
+            "batalla": 95,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "lluvia",
+            "triggered": true,
+            "precipitaciones": 28,
+            "viento": 38,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "tormenta",
+            "triggered": true,
+            "precipitaciones": 28,
+            "viento": 38,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "rayo",
+            "triggered": false,
+            "batalla": 95,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "visibilidad",
+            "triggered": false,
+            "neblina": 42,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "fantasmas",
+            "triggered": false,
+            "neblina": 42,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "tesoro",
+            "triggered": true,
+            "dinero": 3000,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "aventon",
+            "triggered": true,
+            "precipitaciones": 28,
+            "neblina": 42,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "aguaMotor",
+            "triggered": true,
+            "complejidad": 42,
+            "status": 71,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "ave",
+            "triggered": true,
+            "viento": 38,
+            "dirviento": false,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "elevacion",
+            "triggered": true,
+            "peso": 75.0,
+            "cilindraje": 8,
+            "refuerzo": "Negativo"
+        }
+    ],
+    [
+        {
+            "evento": "gasolinera",
+            "triggered": true,
+            "complejidad": 57,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "reten",
+            "triggered": true,
+            "complejidad": 57,
+            "calidad": 100,
+            "velocidad": 48,
+            "dinero": 7470,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "desponchadora",
+            "triggered": true,
+            "tipo": 50,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "taller",
+            "triggered": true,
+            "complejidad": 57,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "poncharse",
+            "triggered": false,
+            "staLLanta": 82,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "bateria",
+            "triggered": true,
+            "precipitaciones": 71,
+            "tempMotor": 103,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "sobrecalentamiento",
+            "triggered": true,
+            "tempMotor": 103,
+            "aceite": 97.7,
+            "status": 23,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "aguaMotor",
+            "triggered": false,
+            "precipitaciones": 71,
+            "neblina": 49,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "animales",
+            "triggered": true,
+            "longitud": 65,
+            "tipo": 50,
+            "precipitaciones": 71,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "gasolinera",
+            "triggered": true,
+            "complejidad": 57,
+            "statusCar": 23,
+            "precipitaciones": 71,
+            "viento": 79,
+            "neblina": 49,
+            "velocidad": 48,
+            "status": 82,
+            "batalla": 95,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "lluvia",
+            "triggered": true,
+            "precipitaciones": 71,
+            "viento": 79,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "tormenta",
+            "triggered": true,
+            "precipitaciones": 71,
+            "viento": 79,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "rayo",
+            "triggered": false,
+            "batalla": 95,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "visibilidad",
+            "triggered": false,
+            "neblina": 49,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "fantasmas",
+            "triggered": false,
+            "neblina": 49,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "tesoro",
+            "triggered": true,
+            "dinero": 7470,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "aventon",
+            "triggered": true,
+            "precipitaciones": 71,
+            "neblina": 49,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "aguaMotor",
+            "triggered": true,
+            "complejidad": 57,
+            "status": 23,
+            "refuerzo": "Positivo"
+        },
+        {
+            "evento": "ave",
+            "triggered": true,
+            "viento": 79,
+            "dirviento": false,
+            "refuerzo": "Negativo"
+        },
+        {
+            "evento": "elevacion",
+            "triggered": false,
+            "peso": 75.0,
+            "cilindraje": 8,
+            "refuerzo": "Negativo"
+        }
+    ]
+]
