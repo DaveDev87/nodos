@@ -18,12 +18,12 @@ with open("data.txt", "r") as f:
     content = f.read()
 
 
-gasLIst = []
+gasList = []
 for item in json.loads(content):
     gas = list(filter(lambda x: x["evento"]=="gasolinera", item))
-    gasLIst += gas
+    gasList += gas
 
-print(gasLIst[0])
+print(gasList[0])
 
 
 
@@ -79,7 +79,9 @@ carTempMotor = 100  # temperatura en grados celsius, mientras más alto sea el e
 carBatalla = 4.3      # Distancia entre ejes, mientras mayor sea la distancia mayor estabilidad en cruvas
 carDinero = 3000
 
-
+carro1 = Carro(int(velocidad(carVel)), carCalCarro, carStaCarro, carTipLLanta, carStaLLanta, 
+gasolina(carGasCantidad), carCilindros, peso(carPeso), carAero, carStaAce, carTempMotor, 
+int(batalla(carBatalla)), carDinero)
 
 for element in caminos: # GENERACION DE CAMINOS
     x = random.randrange(0, 10)
@@ -108,10 +110,6 @@ for idx, element in enumerate(caminos):
         cont += w
     caminosFinal[idx] = cont
 
-carro1 = Carro(int(velocidad(carVel)), carCalCarro, carStaCarro, carTipLLanta, carStaLLanta, 
-gasolina(carGasCantidad), carCilindros, peso(carPeso), carAero, carStaAce, carTempMotor, 
-int(batalla(carBatalla)), carDinero)
-
 newVel = carro1.velocidad
 for idx, item in enumerate(caminos[0]):
     
@@ -130,7 +128,7 @@ for idx, item in enumerate(caminos[0]):
     
     
                 
-    CarEvent = newCarro(item.complejidad, int(newVel), int(carro1.calCarro), int(item.status), item.tipo, item.precipitaciones, carro1.tempMotor, carro1.staAceite, item.neblina, item.longitud, item.viento, int(carro1.staLlanta), carro1.batalla, carro1.dinero, item.dirViento, carro1.pesoTotal, carro1.cilindraje, item.tiempo, carro1.aerodinamica, carro1.staCarro, carro1.tipLlanta, carro1.gasCantidad)
+    CarEvent = newCarro(item.complejidad, int(newVel), int(carro1.calCarro), int(item.status), item.tipo, item.precipitaciones, carro1.tempMotor, int(carro1.staAceite), item.neblina, item.longitud, item.viento, int(carro1.staLlanta), carro1.batalla, carro1.dinero, item.dirViento, carro1.pesoTotal, carro1.cilindraje, item.tiempo, carro1.aerodinamica, carro1.staCarro, carro1.tipLlanta, carro1.gasCantidad)
     if CarEvent[0]==False or CarEvent[2].velocidad<=0 or CarEvent[2].staLlanta<=0 or CarEvent[2].staCarro<=0:
         break
     

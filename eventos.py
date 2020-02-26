@@ -164,7 +164,7 @@ def choque(complejidad, status, precipitaciones, viento, neblina, velocidad, sta
     else:
         triggered = False
     return {
-        "evento": "gasolinera",
+        "evento": "choque",
         "triggered": triggered,
         "complejidad": complejidad,
         "statusCar": status,
