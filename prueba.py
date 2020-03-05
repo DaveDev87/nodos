@@ -1,5 +1,6 @@
 import json
 
+#Este archivo no es importante para el proyecto
 class Persona:
     def __init__(self):
         self.simon = True

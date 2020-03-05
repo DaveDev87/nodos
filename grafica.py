@@ -1,3 +1,5 @@
+#Este archivo no es importante para el proyecto
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd

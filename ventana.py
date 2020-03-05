@@ -1,3 +1,6 @@
+
+#Este archivo no es importante para el proyecto
+
 from tkinter import *
 from nodos import *
 

@@ -292,7 +292,7 @@ def trafico(complejidad, status):
     else:
         triggered = False
     return {
-        "evento": "aguaMotor",
+        "evento": "trafico",
         "triggered": triggered,
         "complejidad": complejidad,
         "status": status,

@@ -3,6 +3,7 @@ from funciones import *
 import math
 from eventos import newCarro
 import json
+from continua import decision
 
 caminos = [[]]
 tipoList = [25, 50, 75, 100]
@@ -12,24 +13,9 @@ w = 0
 carroLista = []
 eventos = []
 
-content = ""
-
-with open("data.txt", "r") as f:
-    content = f.read()
-
-
-gasList = []
-for item in json.loads(content):
-    gas = list(filter(lambda x: x["evento"]=="gasolinera", item))
-    gasList += gas
-
-print(gasList[0])
 
 
 
-# print(json.loads(content)[0])
-# for i in json.loads(content):
-#     print(i)
 
 
 class Camino:
@@ -112,7 +98,13 @@ for idx, element in enumerate(caminos):
 
 newVel = carro1.velocidad
 for idx, item in enumerate(caminos[0]):
+
+    print("Nodo ", idx)
     
+    if decision(item.complejidad, item.tipo, carro1.velocidad, carro1.dinero, carro1.tipLlanta, carro1.staLlanta, item.precipitaciones, carro1.tempMotor, carro1.staAceite, carro1.staLlanta, item.neblina, item.longitud, carro1.staAceite, item.viento, carro1.batalla, carro1.pesoTotal, carro1.cilindraje)==False:
+        hola = input("¿Desea continuar con la ejecuciion? (yes/no) ")
+        if hola=="no":
+            break
     
     newVel              = changeVelocidad(newVel, item.complejidad, item.tipo, item.status, carro1.tipLlanta, carro1.staLlanta, 
                         carro1.pesoTotal, carro1.aerodinamica, carro1.batalla, item.longitud, item.precipitaciones, item.viento, 

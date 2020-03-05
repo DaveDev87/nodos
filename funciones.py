@@ -34,8 +34,6 @@ def desfase(a):
     resul = 100 - a
     return resul
 
-
-
 def changeVelocidad(vel, comple, tipo, caminoSta, tipoLLanta, llantaSta, peso, aero, batalla, longitud, precipitaciones, viento, dirviento, neblina):
     if dirviento:
         viento*=1
@@ -45,8 +43,6 @@ def changeVelocidad(vel, comple, tipo, caminoSta, tipoLLanta, llantaSta, peso, a
     + promedio(vel, peso) + promedio(vel, batalla) + promedio(vel, precipitaciones) + promedio(vel, viento) + 
     promedio(vel, neblina)) / (len(signature(changeVelocidad).parameters) - 4)
     return resul
-
-    
 
 def changeStaLLanta(llanta, tipo, status, longitud, precipitaciones):
     if tipo > 50:
@@ -71,10 +67,6 @@ def changeAceite(aceite, longitud, temp):
     else:
         resul = aceite
     return resul
-
-
-
-# PROBABILIDADES DE QUE OCURRAN LOS EVENTOS
 
 
 
