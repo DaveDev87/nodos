@@ -14,10 +14,6 @@ carroLista = []
 eventos = []
 
 
-
-
-
-
 class Camino:
     def __init__(self, complejidad, tiempo, tipo, longitud, status, precipitaciones, viento, dirViento, neblina):
         self.complejidad    = complejidad
@@ -49,25 +45,26 @@ class Carro:
         self.dinero         = dinero
 
 
-
-
-carVel = 90       # Velocidad se calula en m/s y km/h velocidad maxima 110 Km/h, según la complejidad de las curvas puede bajar a un minimo de 60 km/h
-carCalCarro = 100     # 100 alta, 75 media, menos de 50 baja
-carStaCarro = 100     # 100 buen estado, 75 estado normal, 50 mal estado
-carTipLLanta = 100    # 100 radial menos combustible, 50 HP mayor velocidad mayor adeherencia mas combustible
-carStaLLanta = 100 # 100 buen estado, 75 estado normal, 50 mal estado
-carGasCantidad = 65# maximo de 65 litros
-carCilindros = 8      # numero de cilindros, mientras más cilindros más gasolina gasta
-carPeso = 1500        # peso en Kg, mientras más pesado mayor consumo de gasolina y mayor disminución de velocidad en curvas
-carAero = 100         # mientras más alto sea el número menos resistencia al viento, por lo tanto mayor velocidad
-carStaAce = 100    # mientras mejor sea el estado del aceite menos se calienta el motor
-carTempMotor = 100  # temperatura en grados celsius, mientras más alto sea el estado del aceite menos tiende a calentarse, maximo de 150 grados, nunca baja de 70
-carBatalla = 4.3      # Distancia entre ejes, mientras mayor sea la distancia mayor estabilidad en cruvas
+carVel = 90        # Velocidad se calula en m/s y km/h velocidad maxima 110 Km/h, según la complejidad de las curvas puede bajar a un minimo de 60 km/h.
+carCalCarro = 100      # 100 alta, 75 media, menos de 50 baja.
+carStaCarro = 100      # 100 buen estado, 75 estado normal, 50 mal estado.
+carTipLLanta = 100     # 100 radial menos combustible, 50 HP mayor velocidad mayor adeherencia mas combustible.
+carStaLLanta = 100  # 100 buen estado, 75 estado normal, 50 mal estado.
+carGasCantidad = 65 # maximo de 65 litros.
+carCilindros = 8       # numero de cilindros, mientras más cilindros más gasolina gasta.
+carPeso = 1500         # peso en Kg, mientras más pesado mayor consumo de gasolina y mayor disminución de velocidad en curvas.
+carAero = 100          # mientras más alto sea el número menos resistencia al viento, por lo tanto mayor velocidad.
+carStaAce = 100     # mientras mejor sea el estado del aceite menos se calienta el motor.
+carTempMotor = 100   # temperatura en grados celsius, mientras más alto sea el estado del aceite menos tiende a calentarse, maximo de 150 grados, nunca baja de 70.
+carBatalla = 4.3       # Distancia entre ejes, mientras mayor sea la distancia mayor estabilidad en cruvas.
 carDinero = 3000
 
-carro1 = Carro(int(velocidad(carVel)), carCalCarro, carStaCarro, carTipLLanta, carStaLLanta, 
-gasolina(carGasCantidad), carCilindros, peso(carPeso), carAero, carStaAce, carTempMotor, 
+carro1 = Carro(int(velocidad(carVel)), carCalCarro, carStaCarro, carTipLLanta, carStaLLanta,
+gasolina(carGasCantidad), carCilindros, peso(carPeso), carAero, carStaAce, carTempMotor,
 int(batalla(carBatalla)), carDinero)
+
+carro2 = Carro(90, 60, 80, 50, 75, 45, 6, 1200, 48, 86, 75, 4.2, 2000)
+
 
 for element in caminos: # GENERACION DE CAMINOS
     x = random.randrange(0, 10)
@@ -99,7 +96,7 @@ for idx, element in enumerate(caminos):
 newVel = carro1.velocidad
 for idx, item in enumerate(caminos[0]):
 
-    print("Nodo ", idx)
+    print("Nodo ", idx+1)
     
     if decision(item.complejidad, item.tipo, carro1.velocidad, carro1.dinero, carro1.tipLlanta, carro1.staLlanta, item.precipitaciones, carro1.tempMotor, carro1.staAceite, carro1.staLlanta, item.neblina, item.longitud, carro1.staAceite, item.viento, carro1.batalla, carro1.pesoTotal, carro1.cilindraje)==False:
         hola = input("¿Desea continuar con la ejecuciion? (yes/no) ")
